@@ -1,13 +1,30 @@
 import React from "react";
-import { Text, StyleSheet } from "react-native";
+import { Text, StyleSheet, View, Button, TouchableOpacity } from "react-native";
 
-const HomeScreen = () => {
-  return <Text style={styles.text}>Hello Mutha Fucka</Text>;
+const HomeScreen = ({ navigation }) => {
+  // const HomeScreen = props => { we have destructured this to above so you dont need to put props.navigation.navigate pulling just the navigation property from props object
+  return (
+    <View>
+      <Text style={styles.text}>Hello Mutha Fucka</Text>
+
+      {/* Naviagtion Button */}
+      <Button
+        onPress={() => navigation.navigate("Components")}
+        title="Go to Components Demo"
+      />
+      <Button
+        title="Go To List Demo"
+        onPress={() => navigation.navigate("List")}
+      />
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
   text: {
     fontSize: 30,
+    marginTop: 20,
+    marginVertical: 10,
   },
 });
 
