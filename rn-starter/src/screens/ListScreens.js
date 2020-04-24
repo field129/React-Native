@@ -3,15 +3,15 @@ import { View, Text, StyleSheet, FlatList } from "react-native";
 
 const ListScreen = () => {
   const friends = [
-    { name: "Friend #1" },
-    { name: "Friend #2" },
-    { name: "Friend #3" },
-    { name: "Friend #4" },
-    { name: "Friend #5" },
-    { name: "Friend #6" },
-    { name: "Friend #7" },
-    { name: "Friend #8" },
-    { name: "Friend #9" },
+    { name: "Friend #1", age: 20 },
+    { name: "Friend #2", age: 21 },
+    { name: "Friend #3", age: 26 },
+    { name: "Friend #4", age: 29 },
+    { name: "Friend #5", age: 28 },
+    { name: "Friend #6", age: 25 },
+    { name: "Friend #7", age: 230 },
+    { name: "Friend #8", age: 420 },
+    { name: "Friend #9", age: 40 },
   ];
 
   // Keys are needed for updating lists and must be uniqe. Key must be in form of a string
@@ -27,7 +27,11 @@ const ListScreen = () => {
       // render item called with each individl element
       renderItem={({ item }) => {
         //to call item from element ({})
-        return <Text style={styles.textStyle}>{item.name}</Text>;
+        return (
+          <Text style={styles.textStyle}>
+            {item.name}- Age {item.age}
+          </Text>
+        );
         // element === {item:{name :'friend:#1}, index: 0}
       }}
     />
