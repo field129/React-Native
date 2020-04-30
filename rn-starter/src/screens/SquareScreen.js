@@ -1,3 +1,5 @@
+// REUSABLE STATE UPDATES
+
 import React, { useState } from "react";
 import { Text, StyleSheet, View, Button, FlatList } from "react-native";
 import ColorCounter from "../compenents/ColorCounter";
@@ -22,8 +24,6 @@ const SquareScreen = () => {
           setRed(red + change);
         }
         return;
-    }
-    switch (color) {
       case "green":
         if (green + change > 255 || green + change < 0) {
           return;
@@ -32,17 +32,21 @@ const SquareScreen = () => {
         }
         return;
     }
+    // This has been written as a ternary operator- a way of writing if else on one line
     switch (color) {
       case "blue":
         blue + change > 255 || blue + change < 0
           ? null
           : setBlue(blue + change);
         return;
+      //
+      default:
+        return;
     }
   };
   // blue has refactord the nested if or else argument in a shorter way
-  //  || means 'or' ? means that this is what we want to run if this is true  null means don't do anything
-  //
+  //  || means 'or'. ? means that this is what we want to run if this is true  null means don't do anything,
+  //   : if this is false
 
   console.log(red);
   return (
@@ -80,3 +84,19 @@ export default SquareScreen;
 // Generally state variables are created in the most parent compnent that needs to read or change a state value
 
 // If a child needs to read a state value, the parent can pass it down as a prop
+
+//  Reducer
+
+//  Is a function that manages changes to an object
+// so far the app works fine, we have 3 speprate pieces of state:
+// const red, const, green, const blue
+
+// For this app these three pieces of state are extremely related
+// There is a precise set of well-known ways in which we update these values- increase/decrease each
+// This makes our state a great candidate for being managed by a 'reducer
+
+//  it is a function that gets called with two seperate objects
+// argument 1 - onject that has all of our states in it (red:0,green:0,blue:0)
+// argument 2- object that describes the update we want to make (colorToChange: 'red', amount:15 )
+// Two technicalities 1 we never change argument 1 directly
+//                    2 we must ALWAYS return a value to be used as argument 1
