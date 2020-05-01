@@ -1,3 +1,5 @@
+// use reducer for multiple different properties that you want to keep track of
+
 import React, { useReducer } from "react";
 // rather than useState useReducer (hook function- adds in additional functionality/ capability to functional component  )
 import { Text, StyleSheet, View, Button, FlatList } from "react-native";

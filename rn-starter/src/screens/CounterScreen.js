@@ -1,3 +1,6 @@
+// this document has been refactored using useReducer instead of state
+// useState has been commented out
+
 import React, { useReducer } from "react";
 // import React, { useState } from "react";
 import { Text, StyleSheet, View, Button } from "react-native";

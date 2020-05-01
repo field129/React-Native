@@ -8,6 +8,7 @@ import CounterScreen from "./src/screens/CounterScreen";
 import ColorScreen from "./src/screens/ColorScreen";
 import SquareScreen from "./src/screens/SquareScreen";
 import ReducerScreen from "./src/screens/ReducerScreen";
+import TextInputScreen from "./src/screens/TextInputScreen";
 
 const navigator = createStackNavigator(
   {
@@ -19,6 +20,7 @@ const navigator = createStackNavigator(
     Color: ColorScreen,
     Square: SquareScreen,
     Reducer: ReducerScreen,
+    Text: TextInputScreen,
   },
   {
     initialRouteName: "Home", // this is the page displayed when opening app
